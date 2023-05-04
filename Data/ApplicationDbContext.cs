@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using HB.Models;
 
 namespace FinalHealthBridge.Data
 {
@@ -9,5 +10,6 @@ namespace FinalHealthBridge.Data
             : base(options)
         {
         }
+        public DbSet<HB.Models.Patient> Patient { get; set; } = default!;
     }
 }
