@@ -29,6 +29,18 @@ namespace FinalHealthBridge.Controllers
                           Problem("Entity set 'ApplicationDbContext.Patient'  is null.");
         }
 
+        // GET: Patients
+        public async Task<IActionResult> SearchForm()
+        {
+            return View(await _context.Patient.ToListAsync());
+        }
+
+        // GET: Patients
+        public async Task<IActionResult> SearchResult(string SearchText)
+        {
+            return View("Index", await _context.Patient.Where(t => t.Name.Contains(SearchText)).ToListAsync());
+        }
+
         // GET: Patients/Details/5
         public async Task<IActionResult> Details(long? id)
         {
