@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace FinalHealthBridge.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Dev")]
     public class AddRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
