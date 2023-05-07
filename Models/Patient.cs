@@ -9,6 +9,8 @@ namespace HB.Models
         [Key]
         public long Id { get; set; }
         [Required]
+        public long? PatientId { get; set; }
+        [Required]
         public string? Name { get; set; }
 
         [Required]
@@ -20,5 +22,6 @@ namespace HB.Models
         public string? PhoneNumber { get; set; }
         public string? Address { get; set; }
         public string? Email { get; set; }
+
     }
 }

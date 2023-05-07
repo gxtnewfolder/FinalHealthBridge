@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FinalHealthBridge.Data.Migrations
+namespace FinalHealthBridge.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230504111108_addPatientDb")]
-    partial class addPatientDb
+    [Migration("20230507230313_addnewPatientDb")]
+    partial class addnewPatientDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,10 @@ namespace FinalHealthBridge.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("PatientId")
+                        .IsRequired()
+                        .HasColumnType("bigint");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
