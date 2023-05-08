@@ -9,7 +9,7 @@ namespace HB.Models
         [Key]
         public long Id { get; set; }
         [Required]
-        public long? PatientId { get; set; }
+        public long PatientId { get; set; }
         [Required]
         public string? Name { get; set; }
 

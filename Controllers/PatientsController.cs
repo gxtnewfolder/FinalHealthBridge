@@ -37,7 +37,7 @@ namespace FinalHealthBridge.Controllers
         // GET: Patients
         public async Task<IActionResult> SearchResult(string SearchText)
         {
-            return View("Index", await _context.Patient.Where(t => t.Name.Contains(SearchText)).ToListAsync());
+            return View("Index", await _context.Patient.Where(t => t.PatientId.ToString().Contains(SearchText)).ToListAsync());
         }
         [Authorize(Roles = "Admin,Doctor,Dev,User")]
         // GET: Patients/Details/5
@@ -70,7 +70,7 @@ namespace FinalHealthBridge.Controllers
         [Authorize(Roles = "Admin,Doctor,Dev")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Date_of_Birth,Gender,PhoneNumber,Address,Email")] Patient patient)
+        public async Task<IActionResult> Create([Bind("Id,PatientId,Name,Date_of_Birth,Gender,PhoneNumber,Address,Email")] Patient patient)
         {
             if (ModelState.IsValid)
             {

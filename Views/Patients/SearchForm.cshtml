@@ -7,10 +7,11 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="SearchResult">
+        <form asp-action="SearchResult"onsubmit="return validateSearchText()">
             <div class="form-group">
-                <label for="SearchText" class="control-label">Name</label>
-                <input name="SearchText" class="form-control" />
+                <label for="SearchText" class="control-label">PatientId</label>
+                <input name="SearchText" id="SearchText" class="form-control" />
+                <span id="SearchTextError" class="text-danger"></span>
             </div> 
             <div class="form-group">
                 <input type="submit" value="Search" class="btn btn-primary my-3" />
@@ -26,6 +27,21 @@
     }
     else
     {
-        <a asp-controller="Home" asp-action="Index">Back to List</a>
+        <a asp-controller="Home" asp-action="Index">Back</a>
     }
 </div>
+
+<script>
+    function validateSearchText() {
+        var searchText = document.getElementById("SearchText").value;
+        var searchTextError = document.getElementById("SearchTextError");
+        
+        if (searchText.length !== 11) {
+            searchTextError.textContent = "SearchId must be exactly 11 characters.";
+            return false;
+        }
+        
+        searchTextError.textContent = "";
+        return true;
+    }
+</script>
